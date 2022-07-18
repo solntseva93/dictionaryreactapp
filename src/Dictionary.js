@@ -1,8 +1,13 @@
 import { useState } from "react";
+import axios from "axios";
 import "./Dictionary.css";
 
 export default function Dictionary() {
   const [serchval, setSearchval] = useState();
+
+  function handleResponse(resp) {
+    console.log(resp.data);
+  }
 
   function handleSerchValue(e) {
     e.preventDefault();
@@ -11,7 +16,8 @@ export default function Dictionary() {
 
   function submitForm(e) {
     e.preventDefault();
-    alert(serchval);
+    let apiURL = `https://api.dictionaryapi.dev/api/v2/entries/en/${serchval}`;
+    axios.get(apiURL).then(handleResponse);
   }
 
   return (
