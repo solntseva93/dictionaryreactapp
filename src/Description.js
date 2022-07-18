@@ -1,22 +1,33 @@
 import Example from "./Example";
 import Synonyms from "./Synonyms";
+import Phonetics from "./Phonetics";
 
 export default function Description(props) {
   if (props.data != null) {
     let def = props.data[0].meanings[0].definitions;
-    console.log(def);
+
     return (
-      <div>
-        <h2>{props.data[0].word}</h2>
-        {def.map((val, index) => (
-          <div>
-            <p key={index}>
-              {index + 1}. {val.definition} <br />
-              <Example val={val.example} />
-            </p>
-            <Synonyms val={val.synonyms} />
-          </div>
-        ))}
+      <div className="row">
+        <div className="col-6">
+          <h2>{props.data[0].word}</h2>
+          <Phonetics val={props.data[0].phonetics} />
+          <p className="mt-1 text-muted">
+            {typeof props.data[0].phonetic === "string"
+              ? props.data[0].phonetic
+              : props.data[0].phonetics[1].text}
+          </p>
+        </div>
+        <div className="col-6">
+          {def.map((val, index) => (
+            <div>
+              <p key={index}>
+                {index + 1}. {val.definition} <br />
+                <Example val={val.example} />
+              </p>
+              <Synonyms val={val.synonyms} />
+            </div>
+          ))}
+        </div>
       </div>
     );
   } else {
