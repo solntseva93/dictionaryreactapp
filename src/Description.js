@@ -1,6 +1,7 @@
-export default function Description(props) {
-  console.log(props);
+import Example from "./Example";
+import Synonyms from "./Synonyms";
 
+export default function Description(props) {
   if (props.data != null) {
     let def = props.data[0].meanings[0].definitions;
     console.log(def);
@@ -8,10 +9,13 @@ export default function Description(props) {
       <div>
         <h2>{props.data[0].word}</h2>
         {def.map((val, index) => (
-          <p key={index}>
-            {index + 1}. {val.definition} <br />
-            <em>{val.example}</em>
-          </p>
+          <div>
+            <p key={index}>
+              {index + 1}. {val.definition} <br />
+              <Example val={val.example} />
+            </p>
+            <Synonyms val={val.synonyms} />
+          </div>
         ))}
       </div>
     );

@@ -11,8 +11,6 @@ export default function Dictionary() {
     setresponseData(resp.data);
   }
 
-  console.log(responseData);
-
   function handleSerchValue(e) {
     e.preventDefault();
     setSearchval(e.target.value);
@@ -21,7 +19,6 @@ export default function Dictionary() {
   function submitForm(e) {
     e.preventDefault();
     let apiURL = `https://api.dictionaryapi.dev/api/v2/entries/en/${serchval}`;
-    console.log(apiURL);
     axios.get(apiURL).then(handleResponse);
   }
 
