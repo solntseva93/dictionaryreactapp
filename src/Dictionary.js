@@ -1,13 +1,17 @@
 import { useState } from "react";
 import axios from "axios";
 import "./Dictionary.css";
+import Description from "./Description.js";
 
 export default function Dictionary() {
   const [serchval, setSearchval] = useState();
+  const [responseData, setresponseData] = useState(null);
 
   function handleResponse(resp) {
-    console.log(resp.data);
+    setresponseData(resp.data);
   }
+
+  console.log(responseData);
 
   function handleSerchValue(e) {
     e.preventDefault();
@@ -17,8 +21,11 @@ export default function Dictionary() {
   function submitForm(e) {
     e.preventDefault();
     let apiURL = `https://api.dictionaryapi.dev/api/v2/entries/en/${serchval}`;
+    console.log(apiURL);
     axios.get(apiURL).then(handleResponse);
   }
+
+  //
 
   return (
     <div>
@@ -30,6 +37,7 @@ export default function Dictionary() {
         />
         <input type="submit" value="SEARCH" className="ms-4 btn btn-warning" />
       </form>
+      <Description data={responseData} />
     </div>
   );
 }
