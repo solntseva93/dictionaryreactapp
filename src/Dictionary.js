@@ -29,6 +29,10 @@ export default function Dictionary() {
 
   return (
     <div>
+      <div className="header_block">
+        <h1>Dictionary App</h1>
+        <h3>Write down the word you want to search</h3>
+      </div>
       <form onSubmit={submitForm}>
         <input
           type="search"

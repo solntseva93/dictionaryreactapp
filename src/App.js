@@ -7,7 +7,7 @@ export default function App() {
       <div className="App mb-1">
         <Dictionary />
       </div>
-      <p>
+      <p className="sourse_code">
         <a
           href="https://github.com/solntseva93/dictionaryreactapp"
           target="_blank"

@@ -6,7 +6,7 @@ export default function Description(props) {
     console.log(def);
     return (
       <div>
-        <h1>{props.data[0].word}</h1>
+        <h2>{props.data[0].word}</h2>
         {def.map((val, index) => (
           <p key={index}>
             {index + 1}. {val.definition} <br />
