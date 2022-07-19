@@ -8,7 +8,7 @@ export default function Description(props) {
 
     return (
       <div className="row">
-        <div className="col-6">
+        <div className="col-md-6 col-sm-12">
           <h2>{props.data[0].word}</h2>
           <Phonetics val={props.data[0].phonetics} />
           <p className="mt-1 text-muted">
@@ -17,7 +17,7 @@ export default function Description(props) {
               : props.data[0].phonetics[1].text}
           </p>
         </div>
-        <div className="col-6">
+        <div className="col-md-6 col-sm-12">
           {def.map((val, index) => (
             <div key={index}>
               <p>
