@@ -1,0 +1,9 @@
+.images {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.images img {
+  margin: 20px;
+  border-radius: 10px;
+}

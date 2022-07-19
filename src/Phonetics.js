@@ -1,6 +1,5 @@
 export default function Phonetics(props) {
-  console.log(props.val);
-  if (props.val[0].audio != "") {
+  if (props.val[0].audio !== "") {
     return (
       <div className="phonetics">
         <figure>

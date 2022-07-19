@@ -19,8 +19,8 @@ export default function Description(props) {
         </div>
         <div className="col-6">
           {def.map((val, index) => (
-            <div>
-              <p key={index}>
+            <div key={index}>
+              <p>
                 {index + 1}. {val.definition} <br />
                 <Example val={val.example} />
               </p>
